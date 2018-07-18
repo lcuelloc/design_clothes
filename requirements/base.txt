@@ -14,3 +14,4 @@ pytz==2018.4
 ipdb==0.11
 Werkzeug==0.14.1
 django-environ==0.4.4
+Unidecode==0.4.9
