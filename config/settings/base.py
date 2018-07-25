@@ -46,7 +46,12 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = ["rest_framework", "django_extensions", "expander", "corsheaders"]
 
-LOCAL_APPS = ["v1.accounts.apps.AccountsConfig", "v1.categories.apps.CategoriesConfig"]
+LOCAL_APPS = [
+    "v1.accounts.apps.AccountsConfig",
+    "v1.categories.apps.CategoriesConfig",
+    "v1.sizes.apps.SizesConfig",
+    "v1.colors.apps.ColorsConfig",
+]
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 
@@ -133,7 +138,9 @@ TEMPLATES = [
 # http://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
-    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticatedOrReadOnly"],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly"
+    ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_jwt.authentication.JSONWebTokenAuthentication"
     ],

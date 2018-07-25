@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'v1/', include('v1.accounts.urls')),
     path(r'v1/', include('v1.categories.urls')),
+    path(r'v1/', include('v1.colors.urls')),
+    path(r'v1/', include('v1.sizes.urls')),
 ]
