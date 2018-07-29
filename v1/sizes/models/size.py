@@ -1,6 +1,7 @@
 from django.db import models
 
 from v1.utils.models.core import CoreModel
+from v1.utils.models.upper_field import UpperCharField
 
 
 class Size(CoreModel):
@@ -10,7 +11,7 @@ class Size(CoreModel):
     clothing size
     """
 
-    name = models.CharField(max_length=255, unique=True)
+    name = UpperCharField(max_length=255, unique=True, uppercase=True)
 
     class Meta:
         ordering = ["-id"]

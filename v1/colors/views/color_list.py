@@ -11,7 +11,7 @@ from v1.colors.serializers.color import ColorSerializer
 
 class ColorList(generics.ListCreateAPIView):
     """
-    Get list of all categories and admin create
+    Get list of all colors and admin create
     """
 
     # authentication_classes = []
@@ -22,7 +22,7 @@ class ColorList(generics.ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         try:
             if request.user.is_superuser == False:
-                raise PermissionDenied("You cannot create a new color")
+                raise PermissionDenied("You cannot create a new instance")
             return super().post(request, *args, **kwargs)
         except IntegrityError as e:
             return Response(

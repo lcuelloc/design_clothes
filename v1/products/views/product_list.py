@@ -5,26 +5,28 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
 
-from v1.sizes.models.size import Size
-from v1.sizes.serializers.size import SizeSerializer
+from v1.products.models.product import Product
+from v1.products.serializers.product import ProductSerializer
 
 
-class SizeList(generics.ListCreateAPIView):
+class ProductList(generics.ListCreateAPIView):
     """
     Get list of all sizes and admin create
     """
 
     # authentication_classes = []
     permission_classes = []
-    queryset = Size.objects.all()
-    serializer_class = SizeSerializer
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
     def post(self, request, *args, **kwargs):
+        print(request.user)
         try:
             if request.user.is_superuser == False:
-                raise PermissionDenied("You cannot create a new size")
+                raise PermissionDenied("You cannot create a new Product")
             return super().post(request, *args, **kwargs)
         except IntegrityError as e:
             return Response(
-                {"response": "Size already created"}, status=status.HTTP_400_BAD_REQUEST
+                {"response": "Product already created"},
+                status=status.HTTP_400_BAD_REQUEST,
             )
