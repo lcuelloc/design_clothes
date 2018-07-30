@@ -5,27 +5,27 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
 
-from v1.colors.models.color import Color
-from v1.colors.serializers.color import ColorSerializer
+from v1.products.models.category_product import CategoryProduct
+from v1.products.serializers.category_product import CategoryProductSerializer
 
 
-class ColorList(generics.ListCreateAPIView):
+class CategoryProductList(generics.ListCreateAPIView):
     """
-    Get list of all colors and admin create
+    Association between category and products
     """
 
     # authentication_classes = []
     permission_classes = []
-    queryset = Color.objects.all()
-    serializer_class = ColorSerializer
+    queryset = CategoryProduct.objects.all()
+    serializer_class = CategoryProductSerializer
 
     def post(self, request, *args, **kwargs):
         try:
             if not request.user.is_superuser:
-                raise PermissionDenied("You cannot create a new instance")
+                raise PermissionDenied("You cannot create category product")
             return super().post(request, *args, **kwargs)
         except IntegrityError as e:
             return Response(
-                {"response": "Color already created"},
+                {"response": "Category Product already created"},
                 status=status.HTTP_400_BAD_REQUEST,
             )

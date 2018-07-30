@@ -109,7 +109,7 @@ DRF_EXPANDER_EXPAND_ARG = "expand"
 # -------------------------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 TIME_ZONE = "America/Santiago"
-LANGUAGE_CODE = "es-cl"
+LANGUAGE_CODE = "en-us"
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True

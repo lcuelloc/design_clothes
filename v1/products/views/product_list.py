@@ -11,7 +11,7 @@ from v1.products.serializers.product import ProductSerializer
 
 class ProductList(generics.ListCreateAPIView):
     """
-    Get list of all sizes and admin create
+    Get list of all products and admin create
     """
 
     # authentication_classes = []
@@ -22,7 +22,7 @@ class ProductList(generics.ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         print(request.user)
         try:
-            if request.user.is_superuser == False:
+            if not request.user.is_superuser:
                 raise PermissionDenied("You cannot create a new Product")
             return super().post(request, *args, **kwargs)
         except IntegrityError as e:
