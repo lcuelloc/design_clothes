@@ -7,8 +7,11 @@ from v1.products.serializers.product_type import ProductTypeSerializer
 
 
 class CategoryProductSerializer(ExpanderSerializerMixin, serializers.ModelSerializer):
-    product_type = ProductTypeSerializer(many=True)
+    product_type = ProductTypeSerializer(many=True, required=False)
 
     class Meta:
         model = CategoryProduct
-        fields = ["category", "product"]
+        fields = ["category", "product", "product_type"]
+        expandable_fields = {
+            'product_types': (ProductTypeSerializer, (), {'many': True}),
+            }

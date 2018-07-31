@@ -9,14 +9,15 @@ from v1.products.serializers.product import CategoryProductSerializer
 
 
 class CategorySerializer(ExpanderSerializerMixin, serializers.ModelSerializer):
-    category_product = CategoryProductSerializer(many=True)
+    category_product = CategoryProductSerializer(many=True, required=False)
 
     class Meta:
         model = Category
-        fields = ["id", "name", "slug"]
+        fields = ["id", "name", "slug", "category_product"]
         lookup_field = "slug"
-        extra_kwargs = {
-            'slug': {'read_only': True}
+        extra_kwargs = {"slug": {"read_only": True}}
+        expandable_fields = {
+            "category_products": (CategoryProductSerializer, (), {"many": True})
         }
         # expandable_fields = {
         #    'items': (ItemSerializer, (), {'many': True}),
