@@ -26,4 +26,6 @@ urlpatterns = [
     path(r'v1/', include('v1.products.urls')),
     path(r'v1/', include('v1.images.urls')),
     path(r'v1/', include('v1.statics.urls')),
+    path(r'v1/', include('v1.prints.urls')),
+    path(r'v1/', include('v1.tags.urls')),
 ]

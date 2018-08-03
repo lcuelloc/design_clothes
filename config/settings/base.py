@@ -54,6 +54,8 @@ LOCAL_APPS = [
     "v1.products.apps.ProductsConfig",
     "v1.images.apps.ImagesConfig",
     "v1.statics.apps.StaticsConfig",
+    "v1.prints.apps.PrintsConfig",
+    "v1.tags.apps.TagsConfig",
 ]
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
