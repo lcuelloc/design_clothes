@@ -53,6 +53,7 @@ LOCAL_APPS = [
     "v1.colors.apps.ColorsConfig",
     "v1.products.apps.ProductsConfig",
     "v1.images.apps.ImagesConfig",
+    "v1.statics.apps.StaticsConfig",
 ]
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS

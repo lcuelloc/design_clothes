@@ -19,6 +19,3 @@ class CategorySerializer(ExpanderSerializerMixin, serializers.ModelSerializer):
         expandable_fields = {
             "category_products": (CategoryProductSerializer, (), {"many": True})
         }
-        # expandable_fields = {
-        #    'items': (ItemSerializer, (), {'many': True}),
-        #    }
