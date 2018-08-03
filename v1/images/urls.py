@@ -1,7 +1,14 @@
-from django.urls import path
+from django.urls import path, include
 
-from v1.images.views.image_list import ImageList
+from rest_framework import routers
 
-urlpatterns = [
-    path("images/", ImageList.as_view(), name="image_list"),
+from v1.images.views.image import AdminImageView
+
+router_admin = routers.SimpleRouter()
+router_admin.register(r'images', AdminImageView, base_name='image')
+
+urlpatterns = []
+
+urlpatterns += [
+    path('admin/', include(router_admin.urls)),
 ]

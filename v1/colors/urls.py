@@ -1,9 +1,16 @@
-from django.urls import path
+from django.urls import path, include
 
-from v1.colors.views.color_list import ColorList
-from v1.colors.views.product_color_list import ProductColorList
+from rest_framework import routers
 
-urlpatterns = [
-    path("colors/", ColorList.as_view(), name="color_list"),
-    path("product-colors/", ProductColorList.as_view(), name="product_color_list"),
+from v1.colors.views.color import AdminColorView
+from v1.colors.views.product_color import AdminProductColorView
+
+router_admin = routers.SimpleRouter()
+router_admin.register(r'colors', AdminColorView, base_name='color')
+router_admin.register(r'product-colors', AdminProductColorView, base_name='product-colors')
+
+urlpatterns = []
+
+urlpatterns += [
+    path('admin/', include(router_admin.urls)),
 ]

@@ -1,9 +1,16 @@
-from django.urls import path
+from django.urls import path, include
 
-from v1.sizes.views.size_list import SizeList
-from v1.sizes.views.product_size_list import ProductSizeList
+from rest_framework import routers
 
-urlpatterns = [
-    path("sizes/", SizeList.as_view(), name="size_list"),
-    path("product-sizes/", ProductSizeList.as_view(), name="product_size_list"),
+from v1.sizes.views.size import AdminSizeView
+from v1.sizes.views.product_size import AdminProductSizeView
+
+router_admin = routers.SimpleRouter()
+router_admin.register(r'sizes', AdminSizeView, base_name='size')
+router_admin.register(r'product-sizes', AdminProductSizeView, base_name='product-size')
+
+urlpatterns = []
+
+urlpatterns += [
+    path('admin/', include(router_admin.urls)),
 ]

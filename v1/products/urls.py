@@ -1,15 +1,20 @@
-from django.urls import path
+from django.urls import path, include
 
-from v1.products.views.product_list import ProductList
-from v1.products.views.category_product_list import CategoryProductList
-from v1.products.views.product_type_list import ProductTypeList
+from rest_framework import routers
 
-urlpatterns = [
-    path("products/", ProductList.as_view(), name="product_list"),
-    path(
-        "category-products/",
-        CategoryProductList.as_view(),
-        name="category_product_list",
-    ),
-    path("product-types/", ProductTypeList.as_view(), name="product_type_list"),
-]
+from v1.products.views.category_product import AdminCategoryProductView
+from v1.products.views.product import AdminProductView
+from v1.products.views.product_type import AdminProductTypeView
+
+router_admin = routers.SimpleRouter()
+router_admin.register(
+    r"category-products", AdminCategoryProductView, base_name="category-product"
+)
+router_admin.register(r"products", AdminCategoryProductView, base_name="product")
+router_admin.register(
+    r"product-types", AdminCategoryProductView, base_name="product-type"
+)
+
+urlpatterns = []
+
+urlpatterns += [path("admin/", include(router_admin.urls))]
