@@ -12,7 +12,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     User model
     """
     email = models.EmailField(unique=True, validators=[validate_email])
-    username = models.CharField(blank=True, max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     customer = models.CharField(blank=True, null=True, max_length=255)
 
     is_staff = models.BooleanField(default=False)
