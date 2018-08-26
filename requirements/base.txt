@@ -6,6 +6,7 @@ djangorestframework==3.8.2
 djangorestframework-expander==0.2.3
 djangorestframework-jwt==1.11.0
 djangorestframework-recursive==0.1.2
+django-filter==2.0.0
 python-decouple==3.1
 psycopg2-binary==2.7.4
 tablib==0.12.1

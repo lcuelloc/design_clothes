@@ -54,9 +54,10 @@ LOCAL_APPS = [
     "v1.products.apps.ProductsConfig",
     "v1.images.apps.ImagesConfig",
     "v1.statics.apps.StaticsConfig",
-    "v1.prints.apps.PrintsConfig",
+    "v1.prints.apps.PrintTypesConfig",
     "v1.tags.apps.TagsConfig",
     "v1.designs.apps.DesignsConfig",
+    "v1.locations.apps.LocationsConfig",
 ]
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
@@ -152,13 +153,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-# JWT AUTH
-# -------------------------------------------------------------------------------------------------
-JWT_AUTH = {
-    "JWT_EXPIRATION_DELTA": datetime.timedelta(hours=4),
-    # 'JWT_RESPONSE_PAYLOAD_HANDLER': 'src.apps.users.utils.jwt_response_payload_handler',
-}
-
 # STATICFILES CONFIG
 # -------------------------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
@@ -173,3 +167,9 @@ STATICFILES_FINDERS = [
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
+
+# JWT AUTH
+# --------------------------------------------------------------------------------------
+JWT_AUTH = {
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(hours=12),
+}

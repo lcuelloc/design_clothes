@@ -6,9 +6,9 @@ from unidecode import unidecode
 from v1.utils.models.core import CoreModel
 
 
-class Print(CoreModel):
+class PrintType(CoreModel):
     """
-    Print model.
+    PrintType model.
 
     Print types for clothes
     """
@@ -28,4 +28,4 @@ class Print(CoreModel):
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(unidecode(self.name))
-        super(Print, self).save(*args, **kwargs)
+        super(PrintType, self).save(*args, **kwargs)

@@ -8,6 +8,7 @@ from v1.statics.serializers.static import AdminStaticSerializer
 from v1.utils.views.mixins import MultiSerializerViewSetMixin
 
 
+# v1/admin/statics/
 class AdminStaicView(
     MultiSerializerViewSetMixin,
     mixins.RetrieveModelMixin,

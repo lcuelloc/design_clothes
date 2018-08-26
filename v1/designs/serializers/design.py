@@ -1,11 +1,10 @@
 from rest_framework import serializers
 
-from expander import ExpanderSerializerMixin
-
 from v1.designs.models.design import Design
 
 
-class AdminDesignSerializer(ExpanderSerializerMixin, serializers.ModelSerializer):
+class AdminDesignSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Design
         fields = [

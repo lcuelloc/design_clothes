@@ -1,12 +1,12 @@
 from django.contrib import admin
 
-from v1.prints.models.print import Print
+from v1.prints.models.print_type import PrintType
 from v1.prints.models.print_product import PrintProduct
 from v1.utils.admin.mixins import ShowFieldsAdminMixin
 
 
-@admin.register(Print)
-class PrintAdmin(ShowFieldsAdminMixin, admin.ModelAdmin):
+@admin.register(PrintType)
+class PrintTypeAdmin(ShowFieldsAdminMixin, admin.ModelAdmin):
     pass
 
 

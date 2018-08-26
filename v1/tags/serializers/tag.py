@@ -1,11 +1,9 @@
 from rest_framework import serializers
 
-from expander import ExpanderSerializerMixin
-
 from v1.tags.models.tag import Tag
 
 
-class AdminTagSerializer(ExpanderSerializerMixin, serializers.ModelSerializer):
+class AdminTagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tag

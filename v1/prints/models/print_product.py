@@ -10,8 +10,8 @@ class PrintProduct(CoreModel):
     Print Product combination
     """
 
-    print = models.ForeignKey(
-        "prints.Print",
+    print_type = models.ForeignKey(
+        "prints.PrintType",
         on_delete=models.CASCADE,
         related_name="print_products",
     )
@@ -23,7 +23,7 @@ class PrintProduct(CoreModel):
     )
 
     class Meta:
-        unique_together = ("print", "product_type")
+        unique_together = ("print_type", "product_type")
         ordering = ["-id"]
         get_latest_by = "created"
 
