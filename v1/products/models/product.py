@@ -13,7 +13,15 @@ class Product(CoreModel):
     Base product
     """
 
+    category = models.ForeignKey(
+        "categories.Category",
+        on_delete=models.CASCADE,
+        related_name="products",
+    )
+
     name = models.CharField(max_length=255)
+    html_content = models.TextField(max_length=10000)
+    price = models.IntegerField()
     slug = models.SlugField(unique=True)
 
     class Meta:
@@ -26,4 +34,4 @@ class Product(CoreModel):
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(unidecode(self.name))
-        super(Product, self).save(*args, **kwargs)
+        super(ProductType, self).save(*args, **kwargs)

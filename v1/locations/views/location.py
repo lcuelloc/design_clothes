@@ -20,6 +20,7 @@ class AdminLocationView(
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.ListModelMixin,
+    mixins.DestroyModelMixin,
     viewsets.GenericViewSet,
 ):
 
@@ -35,4 +36,5 @@ class AdminLocationView(
         'list': AdminLocationSerializer,
         'update': AdminLocationSerializer,
         'partial_update': AdminLocationSerializer,
+        'destroy': AdminLocationSerializer,
     }

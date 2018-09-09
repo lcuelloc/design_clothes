@@ -1,11 +1,9 @@
-from rest_framework import filters
 from rest_framework import mixins
 from rest_framework import viewsets
+from rest_framework import filters
 from rest_framework.permissions import IsAdminUser
 from rest_framework.permissions import IsAuthenticated
-
 from django_filters.rest_framework import DjangoFilterBackend
-
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from v1.products.models.product import Product
@@ -24,12 +22,12 @@ class AdminProductView(
     mixins.ListModelMixin,
     viewsets.GenericViewSet,
 ):
+
     queryset = Product.objects.all()
     permission_classes = [IsAuthenticated]
-    pagination_class = NumPagesPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filter_class = AdminProductFilter
-    search_fields = []
+    pagination_class = NumPagesPagination
     authentication_classes = [JSONWebTokenAuthentication]
     serializer_action_classes = {
         'create': AdminProductSerializer,

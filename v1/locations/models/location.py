@@ -16,7 +16,6 @@ class Location(CoreModel):
 
     country = models.CharField(max_length=255, default="Chile")
     region = models.CharField(max_length=255, default="RM")
-    city = models.CharField(max_length=255)
     commune = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     number = models.CharField(max_length=255)

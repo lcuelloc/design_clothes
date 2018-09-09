@@ -16,14 +16,14 @@ class ProductColor(CoreModel):
         related_name="product_colors",
     )
 
-    product_type = models.ForeignKey(
-        "products.ProductType",
+    product = models.ForeignKey(
+        "products.Product",
         on_delete=models.CASCADE,
         related_name="product_colors",
     )
 
     class Meta:
-        unique_together = ("color", "product_type")
+        unique_together = ("color", "product")
         ordering = ["-id"]
         get_latest_by = "created"
 

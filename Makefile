@@ -7,7 +7,7 @@ upgrade:
 	pip install --upgrade -r requirements/local.txt
 
 run:
-	python manage.py runserver_plus 127.0.0.1:8001
+	python manage.py runserver_plus 192.168.1.86:8001
 
 
 worker:

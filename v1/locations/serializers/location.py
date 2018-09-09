@@ -13,7 +13,6 @@ class AdminLocationSerializer(ExpanderSerializerMixin, serializers.ModelSerializ
             "user",
             "country",
             "region",
-            "city",
             "commune",
             "address",
             "number",
