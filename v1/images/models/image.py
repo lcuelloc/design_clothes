@@ -16,6 +16,7 @@ class Image(CoreModel):
         related_name="images",
     )
 
+    name = models.CharField(max_length=50, blank=True, null=True)
     path = models.TextField(unique=True, max_length=5000)
 
     class Meta:

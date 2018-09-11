@@ -30,11 +30,7 @@ class CategoryDesign(CoreModel):
         return "{}".format(self.pk)
 
     def save(self, *args, **kwargs):
-        if not self.parent:
-            parent = 'parent'
-        else:
-            parent = self.parent.name
 
         if not self.id:
-            self.slug = slugify(unidecode(parent+' '+self.name))
+            self.slug = slugify(unidecode(self.name))
         super(CategoryDesign, self).save(*args, **kwargs)

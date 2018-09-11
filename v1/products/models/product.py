@@ -20,7 +20,7 @@ class Product(CoreModel):
     )
 
     name = models.CharField(max_length=255)
-    html_content = models.TextField(max_length=10000)
+    html_content = models.TextField(max_length=10000, null=True, blank=True)
     price = models.IntegerField()
     slug = models.SlugField(unique=True)
 
@@ -34,4 +34,4 @@ class Product(CoreModel):
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(unidecode(self.name))
-        super(ProductType, self).save(*args, **kwargs)
+        super(Product, self).save(*args, **kwargs)

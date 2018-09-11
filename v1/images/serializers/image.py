@@ -7,4 +7,4 @@ class AdminImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        fields = ["pk", "product_color", "path"]
+        fields = ["pk", "name", "product_color", "path"]

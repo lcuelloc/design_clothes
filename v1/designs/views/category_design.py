@@ -44,11 +44,10 @@ class AdminCategoryDesignView(
 
     def create(self, request, *args, **kwargs):
         try:
-            parent = request.data["parent"]
-            if not parent:
+            if not "parent" in request.data:
                 return super().create(request, *args, **kwargs)
             else:
-                ca_parent = CategoryDesign.objects.get(pk=parent)
+                ca_parent = CategoryDesign.objects.get(pk=request.data["parent"])
                 if not ca_parent.parent:
                     return super().create(request, *args, **kwargs)
                 else:

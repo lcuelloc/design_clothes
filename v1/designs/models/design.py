@@ -23,8 +23,8 @@ class Design(CoreModel):
     slug = models.SlugField(unique=True)
     img = models.TextField(max_length=5000)
     is_custom = models.BooleanField(default=False)
-    height = models.FloatField()
-    width = models.FloatField()
+    height = models.FloatField(default=0)
+    width = models.FloatField(default=0)
 
     class Meta:
         ordering = ["-id"]

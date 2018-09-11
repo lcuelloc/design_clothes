@@ -22,6 +22,8 @@ class ProductSize(CoreModel):
         related_name="product_sizes",
     )
 
+    stock = models.IntegerField(default=0)
+
     class Meta:
         unique_together = ("size", "product_color")
         ordering = ["-id"]
