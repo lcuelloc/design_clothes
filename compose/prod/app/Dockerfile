@@ -37,6 +37,6 @@ RUN set -ex && chmod +x /entrypoint.sh
 
 COPY . /code/
 
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
 
 

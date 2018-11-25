@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import environ
 import datetime
 
-
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path("v1")
 
@@ -87,7 +86,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # DATABASE CONFIG
 # -------------------------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_LOCAL_URL", default=LOCAL_DATABASE_URL)}
+DATABASES = {"default": env.db("DATABASE_LOCAL_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 ROOT_URLCONF = "config.urls"
