@@ -20,6 +20,7 @@ class Product(CoreModel):
     )
 
     name = models.CharField(max_length=255)
+    thumbnail = models.TextField(max_length=3000, null=True, blank=True)
     html_content = models.TextField(max_length=10000, null=True, blank=True)
     price = models.IntegerField()
     slug = models.SlugField(unique=True)

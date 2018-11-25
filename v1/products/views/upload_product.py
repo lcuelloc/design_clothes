@@ -11,6 +11,7 @@ from rest_framework import views
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
@@ -74,7 +75,10 @@ class AdminUploadProductView(views.APIView):
             product, _ = Product.objects.get_or_create(
                 category=category,
                 name=value.get("product_name"),
-                defaults={"price": value.get("product_price")},
+                defaults={
+                    "price": value.get("product_price"),
+                    "thumbnail": value.get("front"),
+                },
             )
 
             # Print types association

@@ -7,4 +7,4 @@ class AdminPrintProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PrintProduct
-        fields = ["id", "print_type", "product_type"]
+        fields = ["id", "print_type", "product"]

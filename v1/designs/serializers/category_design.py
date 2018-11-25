@@ -12,3 +12,23 @@ class AdminCategoryDesignSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "slug", "parent"]
         lookup_field = "slug"
         extra_kwargs = {"slug": {"read_only": True}}
+
+
+class AdminCategoryDesignDetailSerializer(serializers.ModelSerializer):
+    children = RecursiveField(required=False, allow_null=True, many=True)
+
+    class Meta:
+        model = CategoryDesign
+        fields = ["id", "name", "slug", "parent", "children"]
+        lookup_field = "slug"
+        extra_kwargs = {"slug": {"read_only": True}}
+
+
+class AdminCategoryDesignParentSerializer(serializers.ModelSerializer):
+    parent = AdminCategoryDesignSerializer()
+
+    class Meta:
+        model = CategoryDesign
+        fields = ["id", "name", "slug", "parent"]
+        lookup_field = "slug"
+        extra_kwargs = {"slug": {"read_only": True}}

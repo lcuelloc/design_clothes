@@ -14,6 +14,7 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from v1.designs.models.design import Design
 from v1.designs.serializers.design import AdminDesignSerializer
+from v1.designs.serializers.design import AdminDesignListSerializer
 from v1.designs.filters.design import AdminDesignFilter
 from v1.designs.models.category_design import CategoryDesign
 from v1.utils.views.mixins import MultiSerializerViewSetMixin
@@ -39,7 +40,7 @@ class AdminDesignView(
     authentication_classes = [JSONWebTokenAuthentication]
     serializer_action_classes = {
         'create': AdminDesignSerializer,
-        'list': AdminDesignSerializer,
+        'list': AdminDesignListSerializer,
         'update': AdminDesignSerializer,
         'partial_update': AdminDesignSerializer,
     }

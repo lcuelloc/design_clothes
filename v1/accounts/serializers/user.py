@@ -11,11 +11,13 @@ class AdminUserSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "email",
+            "ci",
+            "phone",
             "first_name",
             "last_name",
             "password",
             "is_active",
-            "customer",
+            "customer"
         ]
         extra_kwargs = {"password": {"write_only": True}}
 

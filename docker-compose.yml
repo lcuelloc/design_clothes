@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+    app:
+        restart: always
+        build:
+            context: .
+            dockerfile: ./compose/prod/app/Dockerfile
+        command: /start.sh
+        env_file: .env
+        volumes:
+            - ./static/:/public/static/
+            - ./media/:/public/media/
+        expose:
+            - "5000"
+        depends_on:
+            - db
+
+    db:
+        restart: always
+        image: mdillon/postgis:10-alpine
+        env_file: .env
+        volumes:
+            - postgis:/var/lib/postgresql/data
+
+    nginx:
+        restart: always
+        build:
+            context: .
+            dockerfile: ./compose/prod/nginx/Dockerfile
+        volumes:
+            - ./media:/public/media:ro
+            - ./static:/public/static:ro
+        ports:
+            - "80:80"
+        depends_on:
+            - app
+
+volumes:
+    postgis:
+
