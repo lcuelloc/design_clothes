@@ -31,12 +31,6 @@ RUN set -ex && pip install pipenv
 RUN set -ex && pipenv install --system --skip-lock
 
 COPY ./compose/prod/app/start.sh /start.sh
-COPY ./compose/prod/app/entrypoint.sh /entrypoint.sh
 RUN set -ex && chmod +x /start.sh
-RUN set -ex && chmod +x /entrypoint.sh
 
 COPY . /code/
-
-#ENTRYPOINT ["/entrypoint.sh"]
-
-

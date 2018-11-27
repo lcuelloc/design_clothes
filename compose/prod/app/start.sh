@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+python manage.py migrate
+python manage.py collectstatic --noinput
+
 PORT="5000"
 MAX_REQUESTS=0
 REQUEST_TIMEOUT=300

@@ -14,6 +14,7 @@ DEBUG = env.bool('DEBUG', default=False)
 # --------------------------------------------------------------------------------------
 DATABASES["default"] = env.db("DATABASE_URL")
 
+
 # STATIC CONFIG
 # --------------------------------------------------------------------------------------
 STATIC_ROOT = env("STATIC_ROOT")
