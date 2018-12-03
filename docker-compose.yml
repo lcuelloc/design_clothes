@@ -34,6 +34,7 @@ services:
         volumes:
             - ./media:/public/media:ro
             - ./static:/public/static:ro
+            - /var/www:/var/www:ro
         ports:
             - "80:80"
         depends_on:
