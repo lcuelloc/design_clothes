@@ -39,6 +39,7 @@ services:
             - /etc/ssl/certs:/etc/ssl/certs:ro
         ports:
             - "80:80"
+            - "443:443"
         depends_on:
             - app
 
