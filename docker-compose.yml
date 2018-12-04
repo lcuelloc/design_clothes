@@ -35,6 +35,8 @@ services:
             - ./media:/public/media:ro
             - ./static:/public/static:ro
             - /var/www:/var/www:ro
+            - /etc/letsencrypt:/etc/letsencrypt:ro
+            - /etc/ssl/certs:/etc/ssl/certs:ro
         ports:
             - "80:80"
         depends_on:
